@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      - PRODFILE_ACTIVE=dev
+      - DEVTOOLS_PORT=35730
+      - SERVER_PORT=8081
+#      - RABBITMQ_ADDRESS=amqp://guest:guest@localhost:5672
+      - SPRING_RABBITMQ_HOST=194.163.45.210
+    depends_on:
+      - rabbitmq
+
+#  rabbitmq:
+#    image: rabbitmq:3-management
+#    restart: always
+#    ports:
+#      - "5672:5672"
+#      - "15672:15672"
+#    volumes:
+#      - 'rabbitmq_data:/data'
+
+volumes:
+  rabbitmq_data:
+

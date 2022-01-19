@@ -1,0 +1,9 @@
+
+spring:
+  devtools:
+    livereload:
+      port: 3570
+
+server:
+  port: 8081
+
