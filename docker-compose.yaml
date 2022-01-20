@@ -7,12 +7,14 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "80:80"
+      - "443:80"
     environment:
       - PRODFILE_ACTIVE=dev
       - DEVTOOLS_PORT=35730
       - SERVER_PORT=80
       - SPRING_RABBITMQ_HOST=rabbitmq
+      - KEY_STORE=classpath:thbapi1_xyz.p12
+      - KEY_STORE_PASSWORD=13579Xa
     depends_on:
       - rabbitmq
 
