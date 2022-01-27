@@ -23,8 +23,10 @@ public class NhanhHookAPI {
 
     @PostMapping
     public void nhanhHookListener(@RequestBody NhanhHookRequest<Object> message) throws JsonProcessingException {
-        String json = objectWriter.writeValueAsString(message);
+        System.out.println(message);
         try {
+
+            String json = objectWriter.writeValueAsString(message);
             rabbitTemplate.convertAndSend(directExchange.getName(),message.getEvent() , json );
         }catch (Exception e){
             e.printStackTrace();

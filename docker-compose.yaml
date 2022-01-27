@@ -9,7 +9,7 @@ services:
     ports:
       - "443:443"
     environment:
-      - PRODFILE_ACTIVE=dev
+      - PRODFILE_ACTIVE=prod
       - DEVTOOLS_PORT=35730
       - SERVER_PORT=443
       - SPRING_RABBITMQ_HOST=rabbitmq
